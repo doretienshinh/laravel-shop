@@ -24,7 +24,7 @@ class CreateFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'menu' => 'required',
+            'name' => 'required',
 
         ];
     }
@@ -32,7 +32,7 @@ class CreateFormRequest extends FormRequest
     public function messages()
     {
         return [
-            'menu.required' => 'Vui lòng nhập tiêu đề',
+            'name.required' => 'Vui lòng nhập tiêu đề',
         ];
     }
 }
