@@ -22,11 +22,12 @@ Route::middleware(['auth'])->group(function(){
 
     Route::prefix('admin')->group(function (){
         Route::get('/', [MainController::class,'index'])->name('admin');
-    
+
         #Menu
         Route::prefix('menus')->group(function (){
             Route::get('add', [MenuController::class, 'create'])->name('admin.menus.add');
             Route::post('add', [MenuController::class, 'store'])->name('admin.menus.store');
+            Route::get('list', [MenuController::class, 'index'])->name('admin.menus.index');
         });
     });
 

@@ -15,6 +15,14 @@ class MenuController extends Controller
         $this->menuService = $menuService;
     }
 
+    public function index(){
+        return view('admin.menu.list', [
+            'title' => 'Danh sách danh mục',
+            'menus' => $this->menuService->getAll()
+        ]);
+//        dd($this->menuService->getAll()->toArray());
+    }
+
     public function create(){
         return view('admin.menu.add',
         [
