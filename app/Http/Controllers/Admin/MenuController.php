@@ -36,4 +36,19 @@ class MenuController extends Controller
 
          return redirect()->back();
     }
+
+    public function destroy(Request $request): \Illuminate\Http\JsonResponse
+    {
+        $result = $this->menuService->destroy($request);
+
+        if($result){
+            return response()->json([
+               'error' => false,
+                'message'=> 'Xóa thành công danh mục'
+            ]);
+        }
+        else return response()->json([
+            'error' => true,
+        ]);
+    }
 }

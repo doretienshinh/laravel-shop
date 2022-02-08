@@ -5,23 +5,14 @@
     <table class="table">
         <thead>
             <tr>
-                <th>ID</th>
+                <th style="width: 50px">ID</th>
                 <th>Name</th>
                 <th>ACTIVE</th>
                 <th>Update</th>
-                <th>&nbsp;</th>
+                <th style="width: 100px">&nbsp;</th>
             </tr>
         </thead>
         <tbody>
-{{--        @foreach($menus as $menu)--}}
-{{--            <tr>--}}
-{{--                <td>{{$menu->id}}</td>--}}
-{{--                <td>{{$menu->name}}</td>--}}
-{{--                <td>{{$menu->active}}</td>--}}
-{{--                <td>{{$menu->updated_at}}</td>--}}
-{{--                <td>&nbsp;</td>--}}
-{{--            </tr>--}}
-{{--        @endforeach--}}
             {!! \App\Helpers\Helper::menu($menus) !!}
         </tbody>
     </table>
