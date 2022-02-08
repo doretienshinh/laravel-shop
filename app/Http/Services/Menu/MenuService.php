@@ -42,4 +42,14 @@ class MenuService
         }
         else return false;
     }
+
+    public function update($request, $menu): bool
+    {
+        $menu->fill($request->input());
+        $menu->save();
+
+        Session::flash('success','Cập nhật danh mục thành công');
+
+        return true;
+    }
 }

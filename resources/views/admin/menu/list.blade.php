@@ -2,6 +2,7 @@
 @section('head')
 @endsection
 @section('content')
+    @include('admin.alert')
     <table class="table">
         <thead>
             <tr>

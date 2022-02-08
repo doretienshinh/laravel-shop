@@ -28,6 +28,8 @@ Route::middleware(['auth'])->group(function(){
             Route::get('add', [MenuController::class, 'create'])->name('admin.menus.add');
             Route::post('add', [MenuController::class, 'store'])->name('admin.menus.store');
             Route::get('list', [MenuController::class, 'index'])->name('admin.menus.index');
+            Route::get('edit/{menu}', [MenuController::class, 'show'])->name('admin.menus.show');
+            Route::post('edit/{menu}', [MenuController::class, 'update'])->name('admin.menus.update');
             Route::DELETE('destroy', [MenuController::class, 'destroy'])->name('admin.menus.destroy');
         });
     });

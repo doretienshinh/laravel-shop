@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
+use App\Models\Menu;
 use Illuminate\Http\Request;
 use App\Http\Requests\Menu\CreateFormRequest;
 use App\Http\Services\Menu\MenuService;
@@ -20,7 +21,6 @@ class MenuController extends Controller
             'title' => 'Danh sách danh mục',
             'menus' => $this->menuService->getAll()
         ]);
-//        dd($this->menuService->getAll()->toArray());
     }
 
     public function create(){
@@ -50,5 +50,20 @@ class MenuController extends Controller
         else return response()->json([
             'error' => true,
         ]);
+    }
+
+    public function show(Menu $menu){
+        return view('admin.menu.edit', [
+            'title' => 'Chỉnh sửa danh mục - ' .$menu->name,
+            'menu' => $menu,
+            'menus' => $this->menuService->getAll()
+        ]);
+    }
+
+    public function update(Menu $menu, CreateFormRequest $request){
+
+        $this->menuService->update($request, $menu);
+
+        return redirect(route('admin.menus.index'));
     }
 }
