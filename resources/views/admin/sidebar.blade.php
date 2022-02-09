@@ -71,15 +71,38 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{route('admin.menus.add')}}" class="nav-link">
+                            <a href="{{route('admin.menus.add')}}" class="nav-link {{ (strpos(Route::currentRouteName(), 'admin.menus.add') === 0) ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Thêm danh mục</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="../../index2.html" class="nav-link">
+                            <a href="{{route('admin.menus.list')}}" class="nav-link {{ (strpos(Route::currentRouteName(), 'admin.menus.list') === 0) ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Danh sách danh mục</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-store-alt"></i>
+                        <p>
+                            Sản phẩm
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{route('admin.products.add')}}" class="nav-link {{ (strpos(Route::currentRouteName(), 'admin.products.add') === 0) ? 'active' : '' }}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Thêm sản phẩm</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('admin.products.add')}}" class="nav-link {{ (strpos(Route::currentRouteName(), 'admin.products.add') === 0) ? 'active' : '' }}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Danh sách sản phẩm</p>
                             </a>
                         </li>
                     </ul>

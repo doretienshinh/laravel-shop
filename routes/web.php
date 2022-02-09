@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\UploadController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\Users\LoginController;
 use App\Http\Controllers\Admin\MainController;
@@ -27,11 +29,19 @@ Route::middleware(['auth'])->group(function(){
         Route::prefix('menus')->group(function (){
             Route::get('add', [MenuController::class, 'create'])->name('admin.menus.add');
             Route::post('add', [MenuController::class, 'store'])->name('admin.menus.store');
-            Route::get('list', [MenuController::class, 'index'])->name('admin.menus.index');
+            Route::get('list', [MenuController::class, 'index'])->name('admin.menus.list');
             Route::get('edit/{menu}', [MenuController::class, 'show'])->name('admin.menus.show');
             Route::post('edit/{menu}', [MenuController::class, 'update'])->name('admin.menus.update');
             Route::DELETE('destroy', [MenuController::class, 'destroy'])->name('admin.menus.destroy');
         });
+
+        #Product
+        Route::prefix('products')->group(function(){
+            Route::get('add', [ProductController::class, 'create'])->name('admin.products.add');
+        });
+
+        #Upload
+        Route::post('upload/services', [UploadController::class, 'store'])->name('admin.upload');
     });
 
 });
