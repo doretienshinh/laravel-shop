@@ -64,6 +64,6 @@ class MenuController extends Controller
 
         $this->menuService->update($request, $menu);
 
-        return redirect(route('admin.menus.index'));
+        return redirect(route('admin.menus.list'));
     }
 }

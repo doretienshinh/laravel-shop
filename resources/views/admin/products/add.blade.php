@@ -8,7 +8,7 @@
         <div class="row">
             <div class="form-group col-sm-6">
                 <label for="name">Tên danh Mục</label>
-                <input type="text" name="name" class="form-control" id="name" placeholder="Nhập tên sản phẩm">
+                <input type="text" name="name" class="form-control" value="{{old('name')}}" id="name" placeholder="Nhập tên sản phẩm">
             </div>
             <div class="form-group col-sm-6">
                 <label for="menu_id">Danh Mục</label>
@@ -23,20 +23,20 @@
         <div class="row">
             <div class="form-group col-sm-6">
                 <label for="price">Giá gốc</label>
-                <input type="number" name="price" class="form-control" id="price">
+                <input type="number" name="price" class="form-control" id="price" value="{{old('price')}}">
             </div>
             <div class="form-group col-sm-6">
                 <label for="price_sale">Giá giảm</label>
-                <input type="number" name="price_sale" class="form-control" id="price">
+                <input type="number" name="price_sale" class="form-control" id="price_sale" value="{{old('price_sale')}}">
             </div>
         </div>
         <div class="form-group">
             <label for="description">Mô tả</label>
-            <textarea type="text" name="description" class="form-control" id="description"></textarea>
+            <textarea type="text" name="description" class="form-control" id="description">{{old('description')}}</textarea>
         </div>
         <div class="form-group">
             <label for="content">Mô tả chi tiết</label>
-            <textarea type="text" name="content" class="form-control" id="content"></textarea>
+            <textarea type="text" name="content" class="form-control" id="content">{{old('content')}}</textarea>
         </div>
         <div class="form-group">
             <label>Ảnh sản phẩm</label>
@@ -45,7 +45,7 @@
                 <label class="custom-file-label" for="upload">Chọn ảnh</label>
             </div>
             <div id="image_show"></div>
-            <input type="hidden" name="file" id="file">
+            <input type="hidden" name="thumb" id="thumb">
         </div>
         <div class="form-group">
             <label>Kích hoạt</label>
@@ -62,7 +62,7 @@
     @csrf
     @include('admin.alert')
     <div class="card-footer">
-        <button type="submit" class="btn btn-primary">Tạo danh mục</button>
+        <button type="submit" class="btn btn-primary">Tạo sản phẩm</button>
     </div>
 </form>
 @endsection

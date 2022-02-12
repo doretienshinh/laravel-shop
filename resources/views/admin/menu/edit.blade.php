@@ -40,7 +40,7 @@
     </div>
     @csrf
     <div class="card-footer">
-        <button type="submit" class="btn btn-primary">Tạo danh mục</button>
+        <button type="submit" class="btn btn-primary">Sửa</button>
     </div>
 </form>
 @endsection
