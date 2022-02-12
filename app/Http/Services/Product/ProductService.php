@@ -50,4 +50,8 @@ class ProductService
         }
         else return false;
     }
+
+    public function getAll(){
+        return Product::with('menu')->orderByDesc('id')->paginate(15);
+    }
 }

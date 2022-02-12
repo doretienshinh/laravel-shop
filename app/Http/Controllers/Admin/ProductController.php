@@ -22,7 +22,11 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.products.list',
+        [
+            'title' => 'Danh sách sản phẩm',
+            'products' => $this->productService->getAll()
+        ]);
     }
 
     /**
