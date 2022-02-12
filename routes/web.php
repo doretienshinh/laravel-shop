@@ -40,6 +40,9 @@ Route::middleware(['auth'])->group(function(){
             Route::get('add', [ProductController::class, 'create'])->name('admin.products.add');
             Route::post('add', [ProductController::class, 'store'])->name('admin.products.store');
             Route::get('list', [ProductController::class, 'index'])->name('admin.products.list');
+            Route::get('edit/{product}', [ProductController::class, 'show'])->name('admin.products.show');
+            Route::post('edit/{product}', [ProductController::class, 'update'])->name('admin.products.update');
+            Route::DELETE('destroy', [ProductController::class, 'destroy'])->name('admin.products.destroy');
         });
 
         #Upload

@@ -13,7 +13,6 @@
             <div class="form-group col-sm-6">
                 <label for="menu_id">Danh Mục</label>
                 <select name="menu_id" class="form-control" id="menu_id">
-                    <option value="0">Danh mục cha</option>
                     @foreach($menus as $menu)
                         <option value="{{$menu->id}}">{{$menu->name}}</option>
                     @endforeach

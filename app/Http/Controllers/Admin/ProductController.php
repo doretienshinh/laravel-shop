@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Product\ProductRequest;
 use App\Http\Services\Product\ProductService;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -52,7 +53,7 @@ class ProductController extends Controller
     public function store(ProductRequest $request)
     {
         $this->productService->create($request);
-        return redirect()->back();
+        return redirect()->route('admin.products.list');
     }
 
     /**
@@ -61,9 +62,13 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Product $product)
     {
-        //
+        return view('admin.products.edit', [
+            'title' => 'Chỉnh sửa danh mục - ' .$product->name,
+            'product' => $product,
+            'menus' => $this->productService->getMenu()
+        ]);
     }
 
     /**
@@ -84,9 +89,11 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Product $product, ProductRequest $request)
     {
-        //
+        $this->productService->update($request, $product);
+
+        return redirect(route('admin.products.list'));
     }
 
     /**
@@ -95,8 +102,18 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request): \Illuminate\Http\JsonResponse
     {
-        //
+        $result = $this->productService->destroy($request);
+
+        if($result){
+            return response()->json([
+                'error' => false,
+                'message'=> 'Xóa thành công sản phẩm'
+            ]);
+        }
+        else return response()->json([
+            'error' => true,
+        ]);
     }
 }

@@ -54,4 +54,30 @@ class ProductService
     public function getAll(){
         return Product::with('menu')->orderByDesc('id')->paginate(15);
     }
+
+    public function update($request, $product){
+        $isValidPrice = $this->isValidPrice($request);
+        if($isValidPrice){
+            try {
+                $product->fill($request->input());
+                $product->save();
+                Session::flash('success','Sửa sản phẩm thành công');
+            } catch (\Exception $err){
+                Session::flash('error','Sửa sản phẩm lỗi');
+                \Log::info($err->getMessage());
+                return false;
+            }
+            return true;
+        }
+        else return false;
+    }
+
+    public function destroy($request){
+        $id = $request->input('id');
+        $product = Product::where('id', $id)->first();
+        if($product){
+            return Product::where('id', $id)->delete();
+        }
+        else return false;
+    }
 }

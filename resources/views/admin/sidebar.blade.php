@@ -100,7 +100,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{route('admin.products.add')}}" class="nav-link {{ (strpos(Route::currentRouteName(), 'admin.products.add') === 0) ? 'active' : '' }}">
+                            <a href="{{route('admin.products.list')}}" class="nav-link {{ (strpos(Route::currentRouteName(), 'admin.products.list') === 0) ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Danh sách sản phẩm</p>
                             </a>
