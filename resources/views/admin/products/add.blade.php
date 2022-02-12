@@ -39,10 +39,13 @@
             <textarea type="text" name="content" class="form-control" id="content"></textarea>
         </div>
         <div class="form-group">
+            <label>Ảnh sản phẩm</label>
             <div class="custom-file">
                 <input type="file" class="custom-file-input" id="upload">
                 <label class="custom-file-label" for="upload">Chọn ảnh</label>
             </div>
+            <div id="image_show"></div>
+            <input type="hidden" name="file" id="file">
         </div>
         <div class="form-group">
             <label>Kích hoạt</label>
