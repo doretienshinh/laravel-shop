@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\UploadController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\Users\LoginController;
@@ -43,6 +44,16 @@ Route::middleware(['auth'])->group(function(){
             Route::get('edit/{product}', [ProductController::class, 'show'])->name('admin.products.show');
             Route::post('edit/{product}', [ProductController::class, 'update'])->name('admin.products.update');
             Route::DELETE('destroy', [ProductController::class, 'destroy'])->name('admin.products.destroy');
+        });
+
+        #Slider
+        Route::prefix('sliders')->group(function(){
+            Route::get('add', [SliderController::class, 'create'])->name('admin.sliders.add');
+            Route::post('add', [SliderController::class, 'store'])->name('admin.sliders.store');
+            Route::get('list', [SliderController::class, 'index'])->name('admin.sliders.list');
+            Route::get('edit/{slider}', [SliderController::class, 'show'])->name('admin.sliders.show');
+            Route::post('edit/{slider}', [SliderController::class, 'update'])->name('admin.sliders.update');
+            Route::DELETE('destroy', [SliderController::class, 'destroy'])->name('admin.sliders.destroy');
         });
 
         #Upload
