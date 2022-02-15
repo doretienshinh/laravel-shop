@@ -58,7 +58,9 @@ Route::middleware(['auth'])->group(function(){
 
         #Upload
         Route::post('upload/services', [UploadController::class, 'store'])->name('admin.upload');
+
     });
 
 });
+Route::get('/', [\App\Http\Controllers\MainController::class,'index'])->name('index');
 
