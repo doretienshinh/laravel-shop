@@ -49,4 +49,8 @@ class SliderService
         }
         else return false;
     }
+
+    public function show(){
+        return Slider::where('active', 1)->orderBy('sort_by','ASC')->get();
+    }
 }

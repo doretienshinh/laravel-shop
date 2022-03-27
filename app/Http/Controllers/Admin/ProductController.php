@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Product\ProductRequest;
-use App\Http\Services\Product\ProductService;
+use App\Http\Services\Product\ProductAdminService;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -13,7 +13,7 @@ class ProductController extends Controller
 
     protected $productService;
 
-    public function __construct(ProductService $productService){
+    public function __construct(ProductAdminService $productService){
         $this->productService = $productService;
     }
     /**
