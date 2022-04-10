@@ -52,4 +52,21 @@ class MenuService
 
         return true;
     }
+    public function getById($id){
+        return Menu::where('id', $id)->where('active', 1)->firstOrFail();
+    }
+
+    public function getProducts($menu, $request){
+
+        $query = $menu->products()
+        ->select('id', 'name', 'price', 'price_sale', 'thumb')
+        ->where('active', 1);
+
+        if($request->input('price')){
+            $query->orderBy('price', $request->input('price'));
+        }
+        
+        return $query->orderBy('id')->paginate(12)->withQueryString();
+
+    }
 }

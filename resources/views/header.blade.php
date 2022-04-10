@@ -3,7 +3,7 @@
     <!-- Header desktop -->
     <div class="container-menu-desktop">
 
-        <div class="wrap-menu-desktop">
+        <div class="wrap-menu-desktop" style="top: 0px">
             <nav class="limiter-menu-desktop container">
 
                 <!-- Logo desktop -->
