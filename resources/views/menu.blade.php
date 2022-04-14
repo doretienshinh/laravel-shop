@@ -1,6 +1,6 @@
 @extends('main')
 @section('content')
-<div class="bg0 m-t-23 p-b-140" style="margin-top: 84px">
+<div class="bg0 p-b-140 m-t-80">
     <div class="container">
         <div class="flex-w flex-sb-m p-b-52">
             <div class="flex-w flex-l-m filter-tope-group m-tb-10">
