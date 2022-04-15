@@ -66,6 +66,11 @@
                                         </div>
                                     </td>
                                     <td class="column-5">{{$total_price}} đ</td>
+                                    <td class="column-6 p-r-30">
+                                        <a href="/remove-cart/{{$product->id}}">
+                                            Xóa
+                                        </a>
+                                    </td>
                                 </tr>
                                 @endforeach
                         </table>

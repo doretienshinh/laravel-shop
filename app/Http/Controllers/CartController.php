@@ -40,4 +40,9 @@ class CartController extends Controller
         $result = $this->cartService->update($request);
         return redirect()->back();
     }
+
+    public function remove($id){
+        $result = $this->cartService->remove($id);
+        return redirect()->back();
+    }
 }

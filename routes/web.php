@@ -72,3 +72,4 @@ Route::get('/san-pham/{id}-{slug}.html', [\App\Http\Controllers\ProductControlle
 Route::post('/add-cart', [\App\Http\Controllers\CartController::class, 'index'])->name('index');
 Route::get('/carts', [\App\Http\Controllers\CartController::class, 'show'])->name('index');
 Route::post('/update-cart', [\App\Http\Controllers\CartController::class, 'update'])->name('index');
+Route::get('/remove-cart/{id}', [\App\Http\Controllers\CartController::class, 'remove'])->name('index');

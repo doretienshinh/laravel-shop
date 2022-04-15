@@ -54,4 +54,10 @@ class CartService {
     public function update($request){
         Session::put('carts', $request->num_product);
     }
+
+    public function remove($id){
+        $carts = Session::get('carts');
+        unset($carts[$id]);
+        Session::put('carts', $carts);
+    }
 }
