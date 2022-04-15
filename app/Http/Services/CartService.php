@@ -5,6 +5,7 @@ namespace App\Http\Services;
 
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Session;
+use App\models\Product;
 
 class CartService {
 
@@ -37,5 +38,20 @@ class CartService {
         Session::put('carts', $carts);
 
         return true;
+    }
+
+    public function getProduct(){
+        $carts = Session::get('carts');
+        if(is_null($carts)) return [];
+
+        $productId = array_keys($carts);
+        return Product::select('id', 'name', 'price', 'price_sale', 'thumb')
+        ->where('active', 1)
+        ->whereIn('id', $productId)
+        ->get();
+    }
+
+    public function update($request){
+        Session::put('carts', $request->num_product);
     }
 }

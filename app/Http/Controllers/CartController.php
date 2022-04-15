@@ -17,15 +17,12 @@ class CartController extends Controller
     public function index(Request $request){
         $result = $this->cartService->create($request);
 
-        // dd(Session::get('carts'));
-        return redirect()->back();
-
-        // if($result === false){
-        //     return redirect()->back();
-        // }
-        // else{
-        //     return redirect('/carts');
-        // }
+        if($result === false){
+            return redirect()->back();
+        }
+        else{
+            return redirect('/carts');
+        }
     }
 
     public function show()
@@ -37,5 +34,10 @@ class CartController extends Controller
             'products' => $products,
             'carts' => Session::get('carts')
         ]);
+    }
+
+    public function update(Request $request){
+        $result = $this->cartService->update($request);
+        return redirect()->back();
     }
 }
