@@ -11,18 +11,18 @@
                 <i class="zmdi zmdi-close"></i>
             </div>
         </div>
-
+        @if (!is_null($product_carts))
         <div class="header-cart-content flex-w js-pscroll">
             <ul class="header-cart-wrapitem w-full">
                 @php
-                    $total_pay = 0;
+                $total_pay = 0;
                 @endphp
 
-                @foreach ($products as $product)
+                @foreach ($product_carts as $product)
                 @php
-                    $carts = \Illuminate\Support\Facades\Session::get('carts');
-                    $cart = $carts[$product->id];
-                    $price = $product->price < $product->price_sale ? $product->price : $product->price_sale;
+                $carts = \Illuminate\Support\Facades\Session::get('carts');
+                $cart = $carts[$product->id];
+                $price = $product->price < $product->price_sale ? $product->price : $product->price_sale;
                     $total_price = number_format($price*$carts[$product->id]);
                     $total_pay += $price*$carts[$product->id];
                     @endphp
@@ -62,5 +62,12 @@
                 </div>
             </div>
         </div>
+        @else
+        <div class="header-cart-content flex-w js-pscroll">
+            <ul class="header-cart-wrapitem w-full">
+                Giỏ hàng rỗng
+            </ul>
+        </div>
+        @endif
     </div>
 </div>
