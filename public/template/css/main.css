@@ -2139,7 +2139,7 @@ input.num-product::-webkit-inner-spin-button {
 /*//////////////////////////////////////////////////////////////////
 [ S-Text 0 - 15 ]*/
 .stext-101 {
-  font-family: Poppins-Medium;
+  /* font-family: Poppins-Medium; */
   font-size: 15px;
   line-height: 1.466667;
   text-transform: uppercase;

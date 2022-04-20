@@ -45,4 +45,9 @@ class CartController extends Controller
         $result = $this->cartService->remove($id);
         return redirect()->back();
     }
+    public function addCart(Request $request){
+        $this->cartService->addCart($request);
+
+        return redirect()->back();
+    }
 }
