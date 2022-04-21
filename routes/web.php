@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\Users\LoginController;
 use App\Http\Controllers\Admin\MainController;
 use App\Http\Controllers\Admin\MenuController;
+use App\Http\Controllers\Admin\CartController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -55,7 +56,10 @@ Route::middleware(['auth'])->group(function(){
             Route::post('edit/{slider}', [SliderController::class, 'update'])->name('admin.sliders.update');
             Route::DELETE('destroy', [SliderController::class, 'destroy'])->name('admin.sliders.destroy');
         });
-
+        #Cart
+        Route::prefix('carts-order')->group(function(){
+            Route::get('list', [CartController::class, 'index'])->name('admin.carts-order.list');
+        });
         #Upload
         Route::post('upload/services', [UploadController::class, 'store'])->name('admin.upload');
 

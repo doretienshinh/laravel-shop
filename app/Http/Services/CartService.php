@@ -82,7 +82,8 @@ class CartService {
                 'phone' => $request->input('phone'),
                 'address' => $request->input('address'),
                 'email' => $request->input('email'),
-                'content' => $request->input('content')
+                'content' => $request->input('content'),
+                'status' => CART_ORDER_STATUS_ORDERED
             ]);
 
             $this->infoProductCart($carts, $customer->id);
@@ -121,5 +122,10 @@ class CartService {
         }
 
         return Cart::insert($data);
+    }
+
+    public function getAllCustomer(){
+        $customers = Customer::orderBy('created_at', 'desc')->paginate(15);
+        return $customers;
     }
 }
