@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Services\CartService;
+use App\Models\Customer;
+use App\Models\Cart;
 
 class CartController extends Controller
 {
@@ -19,6 +21,13 @@ class CartController extends Controller
         return view('admin.cart.list',[
             'title' => 'Danh sách đặt hàng',
             'customers' => $result
+        ]);
+    }
+    public function detail(Customer $customer){
+        return view('admin.cart.detail',[
+            'title' => 'Đơn hàng của ' .$customer->name,
+            'customer' => $customer,
+            'products' => $customer->carts()->get()
         ]);
     }
 }

@@ -59,6 +59,7 @@ Route::middleware(['auth'])->group(function(){
         #Cart
         Route::prefix('carts-order')->group(function(){
             Route::get('list', [CartController::class, 'index'])->name('admin.carts-order.list');
+            Route::get('detail/{customer}', [CartController::class, 'detail'])->name('admin.carts-order.detail');
         });
         #Upload
         Route::post('upload/services', [UploadController::class, 'store'])->name('admin.upload');
