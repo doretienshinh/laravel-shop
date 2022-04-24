@@ -60,7 +60,6 @@
                         </ul>
                     </div><!-- /.card-header -->
                     <div class="card-body">
-                        {{dd($products)}}
                         <div class="products">
                             @php $total = 0; @endphp
                             <table class="table">
